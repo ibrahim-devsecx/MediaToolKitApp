@@ -276,9 +276,17 @@ This project demonstrates practical Android development skills, including:
 
 ---
 
-## Project Goal
+## Project Purpose
 
-The goal of MediaToolKitApp is to provide a small but practical Android media toolkit while demonstrating clean Android architecture and real-world file processing.
+MediaToolKitApp was built as a practical Android project that turns common media-processing tasks into a complete, user-focused mobile experience.
+
+It demonstrates how video preview, file handling, background processing, local history, progress updates, and output file management can be combined in a clean Android application.
+
+---
+
+## Development Scope
+
+The project covers the full flow of working with media files on Android: selecting a file, preparing it for processing, applying FFmpeg operations, saving the output through MediaStore, and managing the generated files locally.
 
 ---
 
@@ -286,9 +294,3 @@ The goal of MediaToolKitApp is to provide a small but practical Android media to
 
 **Ibrahim Awad**  
 Android Developer
-
----
-
-## License
-
-This project is for learning and portfolio purposes.
