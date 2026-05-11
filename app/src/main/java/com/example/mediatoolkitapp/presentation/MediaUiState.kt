@@ -12,11 +12,14 @@ sealed class MediaUiState {
     ) : MediaUiState()
 
     data class Processing(
-        val message: String
+        val message: String,
+        val progress: Int? = null
     ) : MediaUiState()
 
     data class Success(
-        val outputPath: String
+        val message: String,
+        val outputPath: String,
+        val outputMimeType: String?
     ) : MediaUiState()
 
     data class Error(

@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MediaToolKitApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <style name="Theme.MediaToolKitApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/mtk_primary</item>
+        <item name="colorPrimaryVariant">@color/mtk_primary_dark</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/mtk_background</item>
+        <item name="android:navigationBarColor">@color/mtk_background</item>
     </style>
 
-    <style name="Theme.MediaToolKitApp" parent="Base.Theme.MediaToolKitApp" />
 </resources>

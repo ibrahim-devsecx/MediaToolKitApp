@@ -7,12 +7,20 @@ import androidx.room.PrimaryKey
 data class MediaHistoryEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
+
+    val operationType: String,
+
     val inputName: String,
     val inputPath: String,
+
     val outputPath: String?,
-    val startSeconds: Long,
-    val endSeconds: Long,
+    val outputMimeType: String?,
+
+    val startSeconds: Long?,
+    val endSeconds: Long?,
+
     val status: String,
     val message: String?,
+
     val createdAt: Long = System.currentTimeMillis()
 )

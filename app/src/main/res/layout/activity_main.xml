@@ -4,91 +4,354 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:background="@drawable/bg_app_gradient"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="18dp"
+        android:paddingTop="44dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="22dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/tvAppTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="12dp"
             android:text="MediaToolKit"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="@color/mtk_text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.media3.ui.PlayerView
-            android:id="@+id/playerView"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="#111111"
-            app:use_controller="true" />
+        <TextView
+            android:id="@+id/tvAppSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Video and audio tools in one place."
+            android:textColor="@color/mtk_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppTitle" />
 
-        <Button
-            android:id="@+id/btnSelectVideo"
-            android:layout_width="match_parent"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPreview"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Select Video" />
+            app:cardBackgroundColor="@color/mtk_card"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppSubtitle"
+            app:strokeColor="@color/mtk_border"
+            app:strokeWidth="1dp">
 
-        <EditText
-            android:id="@+id/etStartSeconds"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Start seconds, example: 5"
-            android:inputType="number" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
 
-        <EditText
-            android:id="@+id/etEndSeconds"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="End seconds, example: 15"
-            android:inputType="number" />
+                <androidx.media3.ui.PlayerView
+                    android:id="@+id/playerView"
+                    android:layout_width="0dp"
+                    android:layout_height="230dp"
+                    android:background="@color/mtk_player_bg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:resize_mode="fit"
+                    app:use_controller="true"
+                    app:show_timeout="0"
+                    app:hide_on_touch="false"
+                    app:auto_show="true" />
 
-        <Button
-            android:id="@+id/btnTrimVideo"
-            android:layout_width="match_parent"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSelectVideo"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="Select Video"
+                    android:textAllCaps="false"
+                    android:textColor="@color/mtk_on_primary"
+                    android:textSize="14sp"
+                    app:backgroundTint="@color/mtk_primary"
+                    app:cornerRadius="16dp"
+                    app:layout_constraintEnd_toStartOf="@id/btnProcessedFiles"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/playerView" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnProcessedFiles"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:text="Files"
+                    android:textAllCaps="false"
+                    android:textColor="@color/mtk_text_primary"
+                    android:textSize="14sp"
+                    app:backgroundTint="@color/mtk_card_soft"
+                    app:cornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnSelectVideo"
+                    app:layout_constraintTop_toTopOf="@id/btnSelectVideo"
+                    app:strokeColor="@color/mtk_border"
+                    app:strokeWidth="1dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTrim"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Trim Video" />
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/mtk_card"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardPreview"
+            app:strokeColor="@color/mtk_border"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvTrimTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Trim Range"
+                    android:textColor="@color/mtk_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutStart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="Start"
+                    android:textColorHint="@color/mtk_text_muted"
+                    app:boxBackgroundColor="@color/mtk_card_soft"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxStrokeColor="@color/mtk_primary"
+                    app:hintTextColor="@color/mtk_primary"
+                    app:layout_constraintEnd_toStartOf="@id/layoutEnd"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTrimTitle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etStartSeconds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="@color/mtk_text_primary"
+                        android:textSize="13sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEnd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:hint="End"
+                    android:textColorHint="@color/mtk_text_muted"
+                    app:boxBackgroundColor="@color/mtk_card_soft"
+                    app:boxCornerRadiusBottomEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxStrokeColor="@color/mtk_primary"
+                    app:hintTextColor="@color/mtk_primary"
+                    app:layout_constraintEnd_toStartOf="@id/btnTrimVideo"
+                    app:layout_constraintStart_toEndOf="@id/layoutStart"
+                    app:layout_constraintTop_toTopOf="@id/layoutStart">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEndSeconds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="@color/mtk_text_primary"
+                        android:textSize="13sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTrimVideo"
+                    android:layout_width="84dp"
+                    android:layout_height="56dp"
+                    android:text="Trim"
+                    android:textAllCaps="false"
+                    android:textColor="@color/mtk_on_primary"
+                    android:textSize="14sp"
+                    app:backgroundTint="@color/mtk_primary"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutStart" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/tvStatus"
-            android:layout_width="match_parent"
+            android:id="@+id/tvToolsTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#EEEEEE"
-            android:padding="12dp"
-            android:text="Status: No video selected"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Processing History"
+            android:layout_marginTop="16dp"
+            android:text="Tools"
+            android:textColor="@color/mtk_text_primary"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardTrim" />
 
-        <TextView
-            android:id="@+id/tvHistory"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExtractAudio"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="Extract\nAudio"
+            android:textAllCaps="false"
+            android:textColor="@color/mtk_text_primary"
+            android:textSize="13sp"
+            app:backgroundTint="@color/mtk_card"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toStartOf="@id/btnMuteVideo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvToolsTitle"
+            app:strokeColor="@color/mtk_border"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMuteVideo"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="5dp"
+            android:text="Mute\nVideo"
+            android:textAllCaps="false"
+            android:textColor="@color/mtk_text_primary"
+            android:textSize="13sp"
+            app:backgroundTint="@color/mtk_card"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnExtractAudio"
+            app:layout_constraintTop_toTopOf="@id/btnExtractAudio"
+            app:strokeColor="@color/mtk_border"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompressVideo"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="Compress Video"
+            android:textAllCaps="false"
+            android:textColor="@color/mtk_text_primary"
+            android:textSize="14sp"
+            app:backgroundTint="@color/mtk_card"
+            app:cornerRadius="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnExtractAudio"
+            app:strokeColor="@color/mtk_border"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardStatus"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#F5F5F5"
-            android:padding="12dp"
-            android:text="No history yet"
-            android:textSize="14sp" />
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/mtk_status_bg"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCompressVideo"
+            app:strokeColor="@color/mtk_status_border"
+            app:strokeWidth="1dp">
 
-    </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp">
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Status: No video selected"
+                    android:textColor="@color/mtk_status_text"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progressProcessing"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/mtk_primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStatus"
+                    app:trackColor="@color/mtk_progress_track"
+                    app:trackThickness="6dp" />
+
+                <TextView
+                    android:id="@+id/tvProgressPercent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="@color/mtk_text_secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/progressProcessing" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

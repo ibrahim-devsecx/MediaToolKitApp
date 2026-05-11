@@ -12,7 +12,15 @@ class MediaRepositoryImpl(
         return mediaHistoryDao.observeHistory()
     }
 
+    override fun observeProcessedFiles(): Flow<List<MediaHistoryEntity>> {
+        return mediaHistoryDao.observeProcessedFiles()
+    }
+
     override suspend fun saveHistory(history: MediaHistoryEntity) {
         mediaHistoryDao.insertHistory(history)
+    }
+
+    override suspend fun deleteHistoryById(id: Long) {
+        mediaHistoryDao.deleteHistoryById(id)
     }
 }

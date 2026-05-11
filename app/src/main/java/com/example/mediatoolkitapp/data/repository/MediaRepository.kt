@@ -7,5 +7,9 @@ interface MediaRepository {
 
     fun observeHistory(): Flow<List<MediaHistoryEntity>>
 
+    fun observeProcessedFiles(): Flow<List<MediaHistoryEntity>>
+
     suspend fun saveHistory(history: MediaHistoryEntity)
+
+    suspend fun deleteHistoryById(id: Long)
 }

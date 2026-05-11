@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/processedRoot"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="16dp"
+tools:context=".presentation.ProcessedFilesActivity">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Processed Files"
+    android:textColor="@color/mtk_text_primary"
+    android:textSize="26sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/tvEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:text="No processed files yet"
+    android:textColor="@color/mtk_text_secondary"
+    android:textSize="15sp" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvProcessedFiles"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="14dp" />
+
+</LinearLayout>
