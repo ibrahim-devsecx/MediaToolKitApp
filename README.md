@@ -30,11 +30,11 @@ The project was built as a practical Android portfolio project to demonstrate me
 
 ### Main Screen
 
-![Main Screen](screenshots/main_screen.jpeg)
+<img src="screenshots/main_screen.jpeg" alt="Main Screen" width="280"/>
 
 ### Processed Files Screen
 
-![Processed Files Screen](screenshots/processed_files.jpeg)
+<img src="screenshots/processed_files.jpeg" alt="Processed Files Screen" width="280"/>
 
 ---
 
