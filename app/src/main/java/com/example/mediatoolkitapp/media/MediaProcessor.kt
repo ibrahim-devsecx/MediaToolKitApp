@@ -91,10 +91,6 @@ class MediaProcessor {
         onProgress: (Int) -> Unit
     ): MediaProcessResult = withContext(Dispatchers.IO) {
 
-        /*
-         * We use mpeg4 instead of libx264 because some FFmpeg Android builds
-         * do not include libx264 encoder.
-         */
         val command = buildString {
             append("-y ")
             append("-i ${quote(inputPath)} ")
