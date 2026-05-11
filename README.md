@@ -28,13 +28,16 @@ The project was built as a practical Android portfolio project to demonstrate me
 
 ## Screenshots
 
-### Main Screen
+<p align="center">
+  <img src="screenshots/main_screen.jpeg" alt="Main Screen" width="260"/>
+  <img src="screenshots/processed_files.jpeg" alt="Processed Files Screen" width="260"/>
+</p>
 
-<img src="screenshots/main_screen.jpeg" alt="Main Screen" width="280"/>
-
-### Processed Files Screen
-
-<img src="screenshots/processed_files.jpeg" alt="Processed Files Screen" width="280"/>
+<p align="center">
+  <b>Main Screen</b>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Processed Files Screen</b>
+</p>
 
 ---
 
