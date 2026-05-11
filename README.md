@@ -19,7 +19,9 @@ The project was built as a practical Android portfolio project to demonstrate me
 - Save extracted audio to Music
 - Track processing operations locally
 - View processed files history
-- Open, share, and delete processed files
+- Open processed files
+- Share processed files
+- Delete processed files
 - Clean UI built with XML and Material Design
 
 ---
@@ -28,11 +30,11 @@ The project was built as a practical Android portfolio project to demonstrate me
 
 ### Main Screen
 
-![Main Screen](screenshots/main_screen.png)
+![Main Screen](screenshots/main_screen.jpeg)
 
 ### Processed Files Screen
 
-![Processed Files Screen](screenshots/processed_files.png)
+![Processed Files Screen](screenshots/processed_files.jpeg)
 
 ---
 
